@@ -1,5 +1,7 @@
 [gerrit]
-host=review.openstack.org
-port=29418
-project=openstack/horizon.git
-defaultbranch=stable/folsom
+host=code.engineering.redhat.com
+port=22
+project=horizon.git
+defaultbranch=rh-folsom-rhel-6-patches
+defaultremote=rhos
+defaultrebase=0
