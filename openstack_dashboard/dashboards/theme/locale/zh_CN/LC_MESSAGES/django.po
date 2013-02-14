@@ -1,0 +1,3 @@
+#: dashboards/theme/templates/horizon/common/_sidebar.html:17
+msgid "Current Project"
+msgstr "当前项目"
