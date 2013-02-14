@@ -1,0 +1,17 @@
+{% extends "splash.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+{% include "horizon/_conf.html" %}
+{% include "horizon/client/side/_script_loader.html" %}
+{% include "horizon/_custom_head_js.html" %}
+{% block body_id %}splash{% endblock %}
+
+{% block content %}
+    {% include 'auth/_login.html' %}
+{% endblock %}
+
+{% block js %}
+    {% include "horizon/_scripts.html" %}
+{% endblock %}
+

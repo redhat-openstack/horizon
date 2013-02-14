@@ -60,6 +60,10 @@ class BackupDetailView(tabs.TabView):
         context["backup"] = backup
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(backup)
+        context["page_title"] = _("Volume Backup Details: "
+                                  "%(backup_name)s") % {'backup_name':
+                                                        backup.name}
+
         return context
 
     @memoized.memoized_method

@@ -6,6 +6,16 @@ to our variables */
    settings.py and is added dynamically to the namespace through
    horizon/utils/scss_filter.py */
 $static_url: "/static/" !default;
+/* This variable can be used to change the web root of horizon
+default value is already '/' */
+$webroot: "/dashboard" !default;
+
+/* Bootstrap variables overrides */
+
+$icon-font-path: "../../bootstrap/fonts/bootstrap/";
+$font-size-base: 13px;
+$modal-md: 732px;
+$gray-light: #cccccc;
 
 
 /* Horizon Custom Variables */
