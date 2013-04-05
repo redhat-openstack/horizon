@@ -48,7 +48,7 @@ warnings.formatwarning = lambda message, category, *args, **kwargs: \
     '%s: %s' % (category.__name__, message)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))
+BIN_DIR = '/usr/bin'
 
 if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
@@ -58,12 +58,13 @@ TEMPLATE_DEBUG = DEBUG
 
 SITE_BRANDING = 'OpenStack Dashboard'
 
-LOGIN_URL = '/auth/login/'
-LOGOUT_URL = '/auth/logout/'
+WEBROOT = '/dashboard'
+LOGIN_URL = WEBROOT + '/auth/login/'
+LOGOUT_URL = WEBROOT + '/auth/logout/'
 # LOGIN_REDIRECT_URL can be used as an alternative for
 # HORIZON_CONFIG.user_home, if user_home is not set.
 # Do not set it to '/home/', as this will cause circular redirect loop
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = WEBROOT
 
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
 MEDIA_URL = '/media/'
@@ -211,6 +212,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
+COMPRESS_OFFLINE = True
 
 INSTALLED_APPS = [
     'openstack_dashboard',
