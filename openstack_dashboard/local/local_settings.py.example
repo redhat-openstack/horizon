@@ -7,15 +7,15 @@ from horizon.utils import secret_key
 from openstack_dashboard import exceptions
 from openstack_dashboard.settings import HORIZON_CONFIG
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.
-WEBROOT = '/'
-#LOGIN_URL = WEBROOT + 'auth/login/'
-#LOGOUT_URL = WEBROOT + 'auth/logout/'
+WEBROOT = '/dashboard/'
+# LOGIN_URL = WEBROOT + 'auth/login/'
+# LOGOUT_URL = WEBROOT + 'auth/logout/'
 #
 # LOGIN_REDIRECT_URL can be used as an alternative for
 # HORIZON_CONFIG.user_home, if user_home is not set.
@@ -27,7 +27,7 @@ WEBROOT = '/'
 # with the list of host/domain names that the application can serve.
 # For more information see:
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-#ALLOWED_HOSTS = ['horizon.example.com', ]
+ALLOWED_HOSTS = ['horizon.example.com', 'localhost']
 
 # Set SSL proxy settings:
 # For Django 1.4+ pass this header from the proxy after terminating the SSL,
@@ -90,7 +90,6 @@ WEBROOT = '/'
 # including on the login form.
 #HORIZON_CONFIG["disable_password_reveal"] = False
 
-LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Set custom secret key:
 # You can either set it to a specific value or you can let horizon generate a
@@ -351,8 +350,6 @@ TIME_ZONE = "UTC"
 # OpenStack services are using to determine role based access control in the
 # target installation.
 
-# Path to directory containing policy.json files
-#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 
 # Map of local copy of service policy files.
 # Please insure that your identity policy file matches the one being used on
@@ -364,6 +361,9 @@ TIME_ZONE = "UTC"
 # policy.v3cloudsample.json
 # Having matching policy files on the Horizon and Keystone servers is essential
 # for normal operation. This holds true for all services and their policy files.
+# POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
+POLICY_FILES_PATH = '/etc/openstack-dashboard'
+# Map of local copy of service policy files
 #POLICY_FILES = {
 #    'identity': 'keystone_policy.json',
 #    'compute': 'nova_policy.json',

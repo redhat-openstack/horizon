@@ -33,7 +33,7 @@ warnings.formatwarning = lambda message, category, *args, **kwargs: \
     '%s: %s' % (category.__name__, message)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))
+BIN_DIR = '/usr/bin'
 
 if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
@@ -153,6 +153,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
+COMPRESS_OFFLINE = True
 
 INSTALLED_APPS = [
     'openstack_dashboard',
