@@ -125,12 +125,14 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates'),
-) 
+)
 
 STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+STATICFILES_DIRS = (os.path.join(ROOT_PATH, 'static'),)
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', ('lesscpy {infile}')),
@@ -144,7 +146,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 
 INSTALLED_APPS = [
     'openstack_dashboard',
@@ -158,15 +160,6 @@ INSTALLED_APPS = [
     'horizon',
     'openstack_auth',
 ]
-
-THEME_APP = 'openstack_dashboard_theme'
-
-try:
-    __import__(THEME_APP)
-    INSTALLED_APPS = (THEME_APP,) + INSTALLED_APPS
-except:
-    pass
-
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
