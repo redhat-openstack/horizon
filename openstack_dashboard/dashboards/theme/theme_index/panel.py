@@ -20,6 +20,7 @@ import horizon
 
 from openstack_dashboard.dashboards.theme import dashboard
 
+
 class ThemePanel(horizon.Panel):
     name = _("Panel providing a theme")
     slug = 'theme_index'
