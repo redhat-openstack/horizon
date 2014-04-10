@@ -6,4 +6,3 @@ DEFAULT = False
 ADD_EXCEPTIONS = {}
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.theme']
-
