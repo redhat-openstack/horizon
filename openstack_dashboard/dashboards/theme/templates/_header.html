@@ -7,7 +7,8 @@
   <li class="dropdown {% if request.horizon.dashboard.slug == "settings" %}active{% endif %}">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rcueicon rcueicon-user"></span> {% blocktrans with username=request.user.username %}{{ username }}{% endblocktrans %}<b class="caret"></b></a>
     <ul class="dropdown-menu">
-      <li{% if request.horizon.dashboard.slug == "settings" %} class="active"{% endif %}><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
+      <li{% if request.horizon.dashboard.slug == "settings" and request.horizon.panel.slug == "user" %} class="active"{% endif %}><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
+      <li{% if request.horizon.dashboard.slug == "settings" and request.horizon.panel.slug == "password" %} class="active"{% endif %}><a href="{% url 'horizon:settings:password:index' %}">{% trans "Change Password" %}</a></li>
       <li class="divider"></li>
       <li><a href="{% url 'logout' %}">{% trans "Sign Out" %}</a></li>
     </ul>
