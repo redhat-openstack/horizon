@@ -1,6 +1,13 @@
 import logging
 import os
 import sys
+
+####
+# explicitly require Django 1.5 or later
+from pkg_resources import require
+require('Django>=1.5,<1.6')
+####
+
 import django.core.handlers.wsgi
 from django.conf import settings
 

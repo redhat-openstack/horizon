@@ -28,6 +28,10 @@ import inspect
 import logging
 import os
 
+
+__requires__ = ['Django >= 1.5, < 1.6']
+import pkg_resources
+
 from django.conf import settings  # noqa
 from django.conf.urls.defaults import include  # noqa
 from django.conf.urls.defaults import patterns  # noqa

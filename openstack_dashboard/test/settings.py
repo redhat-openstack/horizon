@@ -1,5 +1,8 @@
 import os
 
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 

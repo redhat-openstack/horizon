@@ -2,6 +2,9 @@ from collections import defaultdict  # noqa
 import itertools
 import logging
 
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions

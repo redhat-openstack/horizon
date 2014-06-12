@@ -16,6 +16,9 @@
 
 from collections import defaultdict  # noqa
 
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from django.views import generic
 
 from horizon.templatetags.horizon import has_permissions  # noqa

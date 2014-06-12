@@ -1,3 +1,6 @@
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from django.conf import settings  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 

@@ -22,6 +22,9 @@ import logging
 import os
 import socket
 
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.auth.models import Permission  # noqa
 from django.contrib.auth.models import User  # noqa

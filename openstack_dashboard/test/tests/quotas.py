@@ -18,8 +18,10 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
 from __future__ import absolute_import
+
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
 
 from django import http
 from mox import IsA  # noqa

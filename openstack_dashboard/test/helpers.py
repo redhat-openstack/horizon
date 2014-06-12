@@ -21,6 +21,9 @@
 from functools import wraps  # noqa
 import os
 
+__requires__ = ['Django >= 1.5,< 1.6']
+import pkg_resources
+
 from django.conf import settings  # noqa
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.messages.storage import default_storage  # noqa
