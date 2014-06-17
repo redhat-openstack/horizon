@@ -146,7 +146,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
-COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE = True
 
 INSTALLED_APPS = [
     'openstack_dashboard',
