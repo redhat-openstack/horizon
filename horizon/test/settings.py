@@ -26,6 +26,8 @@ import xstatic.main
 import xstatic.pkg.angular
 import xstatic.pkg.angular_cookies
 import xstatic.pkg.angular_mock
+import xstatic.pkg.bootstrap_datepicker
+import xstatic.pkg.bootstrap_scss
 import xstatic.pkg.d3
 import xstatic.pkg.font_awesome
 import xstatic.pkg.hogan
@@ -74,6 +76,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django_nose',
+    'django_pyscss',
     'compressor',
     'horizon',
     'horizon.test',
@@ -159,6 +162,10 @@ STATICFILES_DIRS = (
         xstatic.main.XStatic(xstatic.pkg.angular_cookies).base_dir),
     ('horizon/lib/angular',
         xstatic.main.XStatic(xstatic.pkg.angular_mock).base_dir),
+    ('horizon/lib/bootstrap_datepicker',
+        xstatic.main.XStatic(xstatic.pkg.bootstrap_datepicker).base_dir),
+    ('bootstrap',
+        xstatic.main.XStatic(xstatic.pkg.bootstrap_scss).base_dir),
     ('horizon/lib',
         xstatic.main.XStatic(xstatic.pkg.d3).base_dir),
     ('horizon/lib',
