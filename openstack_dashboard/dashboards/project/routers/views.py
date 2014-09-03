@@ -121,9 +121,14 @@ class DetailView(tabs.TabbedTableView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["router"] = self._get_data()
+        router = self._get_data()
+        table = rtables.RoutersTable(self.request)
+
+        context["router"] = router
+        context["url"] = self.failure_url
+        context["actions"] = table.render_row_actions(router)
         context['dvr_supported'] = api.neutron.get_dvr_permission(self.request,
-                                                              "get")
+                                                                  "get")
         return context
 
     def get(self, request, *args, **kwargs):
