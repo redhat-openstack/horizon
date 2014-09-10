@@ -36,6 +36,7 @@ import xstatic.pkg.jquery
 import xstatic.pkg.jquery_migrate
 import xstatic.pkg.jquery_quicksearch
 import xstatic.pkg.jquery_tablesorter
+import xstatic.pkg.jquery_ui
 import xstatic.pkg.jsencrypt
 import xstatic.pkg.qunit
 import xstatic.pkg.rickshaw
@@ -151,7 +152,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     ('horizon/lib/angular',
         xstatic.main.XStatic(xstatic.pkg.angular).base_dir),
     ('horizon/lib/angular',
@@ -186,7 +187,17 @@ STATICFILES_DIRS = (
         xstatic.main.XStatic(xstatic.pkg.rickshaw).base_dir),
     ('horizon/lib',
         xstatic.main.XStatic(xstatic.pkg.spin).base_dir),
-)
+]
+
+
+if xstatic.main.XStatic(xstatic.pkg.jquery_ui).version.startswith('1.10.'):
+    # The 1.10.x versions already contain the 'ui' directory.
+    STATICFILES_DIRS.append(('horizon/lib/jquery-ui',
+        xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
+else:
+    # Newer versions dropped the directory, add it to keep the path the same.
+    STATICFILES_DIRS.append(('horizon/lib/jquery-ui/ui',
+        xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lesscpy {infile}'),
