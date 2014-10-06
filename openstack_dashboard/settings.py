@@ -200,6 +200,7 @@ else:
         xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
 
 COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lesscpy {infile}'),
     ('text/scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
