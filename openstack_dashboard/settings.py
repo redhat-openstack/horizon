@@ -144,7 +144,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates'),
-) 
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -227,15 +227,6 @@ INSTALLED_APPS = [
     'horizon',
     'openstack_auth',
 ]
-
-THEME_APP = 'openstack_dashboard_theme'
-
-try:
-    __import__(THEME_APP)
-    INSTALLED_APPS = (THEME_APP,) + INSTALLED_APPS
-except:
-    pass
-
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)

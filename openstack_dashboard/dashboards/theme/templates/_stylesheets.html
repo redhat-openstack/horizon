@@ -1,0 +1,10 @@
+{% load compress %}
+
+{% compress css %}
+<link href='{{ STATIC_URL }}dashboard/less/horizon.less' type='text/less' media='screen' rel='stylesheet' />
+<link href='{{ STATIC_URL }}dashboard/less/rhtheme.less' type='text/less' media='screen' rel='stylesheet' />
+{% endcompress %}
+
+<link href='{{ STATIC_URL }}dashboard/css/font-awesome.min.css' type='text/css' media='screen' rel='stylesheet' />
+
+<link rel="shortcut icon" href="{{ STATIC_URL }}dashboard/img/rhfavicon.ico"/>
