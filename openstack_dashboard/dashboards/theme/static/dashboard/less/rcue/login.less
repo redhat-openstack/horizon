@@ -96,12 +96,15 @@
       color: #E01212;
       padding: 0;
     }
-    fieldset .form-field input {
-      border-radius: 1px;
-      height: 20px;
-      margin-bottom: 0;
-      padding: 2px 6px;
-      width: 378px;
+    fieldset {
+     border: 1px solid transparent; // IE
+      .form-field input {
+        border-radius: 1px;
+        height: 20px;
+        margin-bottom: 0;
+        padding: 2px 6px;
+        width: 378px;
+      }
     }
     label {
       color: #fff;
