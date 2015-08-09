@@ -14,6 +14,7 @@
 import logging
 
 from django.conf import settings
+import django
 from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
@@ -35,6 +36,14 @@ from openstack_dashboard.dashboards.project.containers import utils
 LOG = logging.getLogger(__name__)
 static_url = getattr(settings, 'STATIC_URL', '/static/')
 LOADING_IMAGE = '<img src="%s/dashboard/img/loading.gif" />' % static_url
+
+
+def _escape_full_url(url):
+    # NOTE (lhcheng): In Django 1.8, HttpRequest.get_full_path()
+    # method now escapes unsafe characters
+    if django.VERSION < (1, 8):
+        return http.urlquote(url)
+    return url
 
 
 class ViewContainer(tables.LinkAction):
@@ -284,7 +293,7 @@ class ContainersTable(tables.DataTable):
 
     def get_absolute_url(self):
         url = super(ContainersTable, self).get_absolute_url()
-        return http.urlquote(url)
+        return _escape_full_url(url)
 
     def get_full_url(self):
         """Returns the encoded absolute URL path with its query string.
@@ -295,7 +304,7 @@ class ContainersTable(tables.DataTable):
 
         """
         url = super(ContainersTable, self).get_full_url()
-        return http.urlquote(url)
+        return _escape_full_url(url)
 
 
 class ViewObject(tables.LinkAction):
@@ -353,7 +362,7 @@ class DeleteObject(tables.DeleteAction):
 
     def get_success_url(self, request):
         url = super(DeleteObject, self).get_success_url(request)
-        return http.urlquote(url)
+        return _escape_full_url(url)
 
 
 class DeleteMultipleObjects(DeleteObject):
@@ -455,7 +464,7 @@ class ObjectsTable(tables.DataTable):
 
     def get_absolute_url(self):
         url = super(ObjectsTable, self).get_absolute_url()
-        return http.urlquote(url)
+        return _escape_full_url(url)
 
     def get_full_url(self):
         """Returns the encoded absolute URL path with its query string.
@@ -466,4 +475,4 @@ class ObjectsTable(tables.DataTable):
 
         """
         url = super(ObjectsTable, self).get_full_url()
-        return http.urlquote(url)
+        return _escape_full_url(url)
